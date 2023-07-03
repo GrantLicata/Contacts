@@ -35,11 +35,11 @@ export default function ContactForm() {
     setError(msg);
     setSuccess(success);
 
-    if (success) {
-      fullname("");
-      email("");
-      message("");
-    }
+    // if (success) {
+    //   fullname("");
+    //   email("");
+    //   message("");
+    // }
   };
 
   return (
