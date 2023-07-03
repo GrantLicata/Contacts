@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
+// Define contact schema for database
 const contactSchema = new Schema({
   fullname: {
     type: String,
