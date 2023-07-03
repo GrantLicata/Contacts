@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Database connector using identification
 const connectDB = async () => {
   try {
     if (mongoose.connection.readyState === 0) {
