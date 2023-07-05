@@ -25,12 +25,12 @@ const ContactCard = (props) => {
         <p>{email}</p>
         <p>{message}</p>
       </div>
-      <div className="flex flex-col gap-3">
-        <button className="text-white bg-green-700 rounded-md w-16">
+      <div className="flex flex-col gap-3 justify-center">
+        {/* <button className="text-white bg-green-700 rounded-md w-16">
           Edit
-        </button>
+        </button> */}
         <button
-          className="text-white bg-red-700 rounded-md w-16"
+          className="text-white bg-red-700 opacity-80 rounded-md w-20 h-10"
           onClick={() => handleDelete(id)}
         >
           Delete
