@@ -40,29 +40,10 @@ export async function GET() {
     await connectDB();
     // Gather all contacts from the database using mongoose .find method
     const response = await Contact.find({}).sort({ date: -1 });
-    // Return the json-ified version of this response
+    // Return the json version of this response
     return NextResponse.json(response);
   } catch (error) {
     // If an error occurs, return the error data
-    return NextResponse.json(error);
-  }
-}
-
-export async function DELETE(req) {
-  // Receive the following data from the api request
-  const { id } = await req.json();
-  const responseId = id;
-
-  try {
-    // Connect to the database
-    await connectDB();
-    // Create contact object from model
-    await Contact.deleteOne({ id });
-
-    return NextResponse.json({
-      msg: ["The user was successfully deleted"],
-    });
-  } catch (error) {
     return NextResponse.json(error);
   }
 }

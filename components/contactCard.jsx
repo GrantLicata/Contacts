@@ -5,12 +5,11 @@ const ContactCard = (props) => {
 
   // todo: Create delete function
   const handleDelete = async (id) => {
+    console.log("This is the id passed into my function:", id);
     try {
-      const res = await fetch(`/api/contact/${id}`, {
+      await fetch(`/api/contact/${id}`, {
         method: "DELETE",
       });
-      const data = res.json();
-      console.log("Delete data response", data);
     } catch (err) {
       console.log(err);
     }
@@ -32,7 +31,7 @@ const ContactCard = (props) => {
         </button>
         <button
           className="text-white bg-red-700 rounded-md w-16"
-          onClick={handleDelete}
+          onClick={() => handleDelete(id)}
         >
           Delete
         </button>

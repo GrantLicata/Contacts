@@ -39,7 +39,7 @@ export default function Home() {
           fullname={contact.fullname}
           email={contact.email}
           message={contact.message}
-          id={contact.id}
+          id={contact._id}
         />
       ))}
     </div>
