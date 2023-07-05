@@ -35,9 +35,10 @@ export default function Home() {
       {data.map((contact) => (
         <ContactCard
           key={contact._id}
-          fullName={contact.fullname}
+          fullname={contact.fullname}
           email={contact.email}
           message={contact.message}
+          id={contact.id}
         />
       ))}
     </div>

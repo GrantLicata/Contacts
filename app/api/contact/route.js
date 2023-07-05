@@ -47,3 +47,22 @@ export async function GET() {
     return NextResponse.json(error);
   }
 }
+
+export async function DELETE(req) {
+  // Receive the following data from the api request
+  const { id } = await req.json();
+  const responseId = id;
+
+  try {
+    // Connect to the database
+    await connectDB();
+    // Create contact object from model
+    await Contact.deleteOne({ id });
+
+    return NextResponse.json({
+      msg: ["The user was successfully deleted"],
+    });
+  } catch (error) {
+    return NextResponse.json(error);
+  }
+}
