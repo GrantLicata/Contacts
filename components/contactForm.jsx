@@ -1,13 +1,16 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function ContactForm() {
+export default function ContactForm(props) {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState([]);
   const [success, setSuccess] = useState(false);
+
+  const { getData } = props;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +26,7 @@ export default function ContactForm() {
         email,
         message,
       }),
-    });
+    }).then(getData(), setFullname(""), setEmail(""), setMessage(""));
 
     // Receive a message statement and success response from our api call
     const { msg, success } = await res.json();

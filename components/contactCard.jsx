@@ -1,15 +1,15 @@
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const ContactCard = (props) => {
-  const { fullname, email, message, id } = props;
+  const { fullname, email, message, id, getData } = props;
+  const router = useRouter();
 
-  // todo: Create delete function
   const handleDelete = async (id) => {
-    console.log("This is the id passed into my function:", id);
     try {
       await fetch(`/api/contact/${id}`, {
         method: "DELETE",
-      });
+      }).then(getData());
     } catch (err) {
       console.log(err);
     }
