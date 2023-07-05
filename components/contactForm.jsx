@@ -53,23 +53,26 @@ export default function ContactForm() {
             placeholder="John Doe"
           />
         </div>
-        <label htmlFor="fullname">Email</label>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          type="text"
-          id="email"
-          placeholder="john@gmail.com"
-        />
-        <div></div>
-        <label htmlFor="message">Your Message</label>
-        <textarea
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}
-          className="h-32"
-          id="message"
-          placeholder="Type your message here..."
-        ></textarea>
+        <div>
+          <label htmlFor="fullname">Email</label>
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            type="text"
+            id="email"
+            placeholder="john@gmail.com"
+          />
+        </div>
+        <div>
+          <label htmlFor="message">Your Message</label>
+          <textarea
+            onChange={(e) => setMessage(e.target.value)}
+            value={message}
+            className="h-32"
+            id="message"
+            placeholder="Type your message here..."
+          ></textarea>
+        </div>
 
         <button className="bg-green-700 p-3 text-white font-bold" type="submit">
           Send
