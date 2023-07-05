@@ -1,8 +1,8 @@
 import React from "react";
 
-const contactCard = (props) => {
+const ContactCard = (props) => {
   return (
-    <div>
+    <div className="bg-slate-200  rounded-lg py-4 px-3 mt-4 border-t">
       <h3>Full Name</h3>
       <p>Email</p>
       <p>Message</p>
@@ -10,4 +10,4 @@ const contactCard = (props) => {
   );
 };
 
-export default contactCard;
+export default ContactCard;

@@ -12,11 +12,6 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Confirm the presence of data to be sent
-    console.log("Full name:", fullname);
-    console.log("Email:", email);
-    console.log("Message:", message);
-
     // Send a new contact document to our database
     const res = await fetch("api/contact", {
       method: "POST",

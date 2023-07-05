@@ -33,3 +33,17 @@ export async function POST(req) {
     }
   }
 }
+
+export async function GET() {
+  try {
+    // Connect to the database
+    await connectDB();
+    // Gather all contacts from the database using mongoose .find method
+    const response = await Contact.find({});
+    // Return the json-ified version of this response
+    return NextResponse.json(response);
+  } catch (error) {
+    // If an error occurs, return the error data
+    return NextResponse.json(error);
+  }
+}
