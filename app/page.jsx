@@ -12,6 +12,7 @@ export default function Home() {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch("api/contact", {
+        method: "GET",
         cache: "no-store",
       });
 

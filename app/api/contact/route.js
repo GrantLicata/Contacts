@@ -39,7 +39,7 @@ export async function GET() {
     // Connect to the database
     await connectDB();
     // Gather all contacts from the database using mongoose .find method
-    const response = await Contact.find({});
+    const response = await Contact.find({}).sort({ date: -1 });
     // Return the json-ified version of this response
     return NextResponse.json(response);
   } catch (error) {

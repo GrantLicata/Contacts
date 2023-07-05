@@ -29,12 +29,6 @@ export default function ContactForm() {
     const { msg, success } = await res.json();
     setError(msg);
     setSuccess(success);
-
-    // if (success) {
-    //   fullname("");
-    //   email("");
-    //   message("");
-    // }
   };
 
   return (
