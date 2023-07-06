@@ -22,9 +22,6 @@ const ContactCard = (props) => {
     }
   };
 
-  // todo: Create edit function
-  // const editHandler = () => {};
-
   return (
     <div className="bg-slate-200  rounded-lg py-4 px-3 mt-4 border-t flex justify-between">
       <div>
@@ -37,7 +34,13 @@ const ContactCard = (props) => {
           Edit
         </button> */}
         <button
-          className="text-white bg-red-700 opacity-80 rounded-md w-20 h-10"
+          className="text-white bg-slate-700 opacity-80 rounded-md w-16 h-8 cursor-pointer"
+          onClick={() => router.push(`/${id}`)}
+        >
+          Edit
+        </button>
+        <button
+          className="text-white bg-red-700 opacity-80 rounded-md w-16 h-8 cursor-pointer"
           onClick={() => handleDelete(id)}
         >
           Delete

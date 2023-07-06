@@ -1,7 +1,7 @@
 "use client";
 
-import ContactCard from "@/components/contactCard";
-import ContactForm from "@/components/contactForm";
+import ContactCard from "@/components/ContactCard";
+import ContactForm from "@/components/ContactForm";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -15,14 +15,12 @@ export default function Home() {
       cache: "no-store",
     });
 
-    if (!res.ok) {
+    if (res.ok) {
+      const data = await res.json();
+      setData(data);
+    } else {
       setErr(true);
     }
-
-    const data = await res.json();
-
-    setData(data);
-    console.log(data);
   };
 
   // Gather all contacts on first mount

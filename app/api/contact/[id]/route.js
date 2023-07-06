@@ -2,7 +2,7 @@ import connectDB from "@/app/lib/mongodb";
 import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
 
-export async function DELETE(req, { params }) {
+export async function DELETE(request, { params }) {
   // Receive the id parameters entered into the API path upon request
   const { id } = params;
 
@@ -17,3 +17,17 @@ export async function DELETE(req, { params }) {
     return new NextResponse("Database Error", { status: 500 });
   }
 }
+
+export const GET = async (request, { params }) => {
+  const { id } = params;
+
+  try {
+    await connectDB();
+
+    const contact = await Contact.findById(id);
+
+    return new NextResponse(JSON.stringify(contact), { status: 200 });
+  } catch (err) {
+    return new NextResponse("Database Error", { status: 500 });
+  }
+};
