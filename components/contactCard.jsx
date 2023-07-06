@@ -1,17 +1,24 @@
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 
 const ContactCard = (props) => {
   const { fullname, email, message, id, getData } = props;
+  const [error, setError] = useState(false);
   const router = useRouter();
 
   const handleDelete = async (id) => {
+    // Send a delete request for the id passed into the function
     try {
       await fetch(`/api/contact/${id}`, {
         method: "DELETE",
-      }).then(getData());
+      });
     } catch (err) {
-      console.log(err);
+      setError(true);
+      console.log(error);
+    }
+    // If no errors occur, then update the data presented to the user
+    if (!error) {
+      getData();
     }
   };
 

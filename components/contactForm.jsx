@@ -26,12 +26,13 @@ export default function ContactForm(props) {
         email,
         message,
       }),
-    }).then(getData(), setFullname(""), setEmail(""), setMessage(""));
+    }).then(setFullname(""), setEmail(""), setMessage(""));
 
     // Receive a message statement and success response from our api call
     const { msg, success } = await res.json();
     setError(msg);
     setSuccess(success);
+    getData();
   };
 
   return (
@@ -80,9 +81,7 @@ export default function ContactForm(props) {
           error.map((e) => (
             <div
               key={e._id}
-              className={`${
-                success ? "text-green-800" : "text-red-600"
-              } px-5 py-2`}
+              className={`${success ? "hidden" : "text-red-600"} px-5 py-2`}
             >
               {e}
             </div>
