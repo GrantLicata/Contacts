@@ -72,7 +72,10 @@ export default function ContactForm(props) {
           ></textarea>
         </div>
 
-        <button className="bg-green-700 p-3 text-white font-bold" type="submit">
+        <button
+          className="bg-green-700 p-3 text-white font-bold rounded-md"
+          type="submit"
+        >
           Send
         </button>
       </form>
