@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 
 const ContactPage = (params) => {
   const router = useRouter();
-  console.log(params);
 
   // Send a delete request for the id passed into the function
   const deleteUserCard = async (id) => {
@@ -37,6 +36,7 @@ const ContactPage = (params) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Contact the database and update the contact document
     try {
       const res = await fetch(
         `http://localhost:3000/api/contact/${params.params.id}`,
@@ -69,7 +69,6 @@ const ContactPage = (params) => {
   const [data, setData] = useState("");
 
   // Gather data and assign to variables
-  //todo: Refactor this to be more efficient
   useEffect(() => {
     getData(params.params.id).then((data) => {
       setData(data);
