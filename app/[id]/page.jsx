@@ -21,7 +21,7 @@ const ContactPage = (params) => {
   // API request for a specified contact given a provided ID
   const getData = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/contact/${id}`, {
+      const res = await fetch(`/api/contact/${id}`, {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -38,20 +38,17 @@ const ContactPage = (params) => {
 
     // Contact the database and update the contact document
     try {
-      const res = await fetch(
-        `http://localhost:3000/api/contact/${params.params.id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            newFullname: fullname,
-            newEmail: email,
-            newMessage: message,
-          }),
-        }
-      );
+      const res = await fetch(`/api/contact/${params.params.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          newFullname: fullname,
+          newEmail: email,
+          newMessage: message,
+        }),
+      });
 
       if (!res.ok) {
         throw new Error("Failed to update contact");
