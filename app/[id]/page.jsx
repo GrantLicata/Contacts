@@ -98,7 +98,7 @@ const ContactPage = (params) => {
           <input
             className="placeholder:text-slate-700 rounded-sm border-none"
             placeholder={data.message}
-            onChange={(e) => setFullname(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             value={message}
           />
         </div>
