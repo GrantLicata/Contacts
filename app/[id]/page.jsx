@@ -15,26 +15,35 @@ const deleteUserCard = async (id) => {
   router.push("/");
 };
 
-const ContactPage = async (params) => {
-  const router = useRouter();
-  // Form values
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
+const ContactPage = (params) => {
   // API request for a specified contact given a provided ID
   const getData = async (id) => {
     const res = await fetch(`http://localhost:3000/api/contact/${id}`, {
       cache: "no-store",
     });
-    if (!res.ok) {
-      return notFound();
+    if (res.ok) {
+      const data = await res.json();
+      return data;
+    } else {
+      setErr(true);
     }
-    return res.json();
   };
 
-  // Gather data and assign to variable
-  const data = await getData(params.params.id);
+  const router = useRouter();
+  // Form values
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [data, setData] = useState("");
+
+  // Gather data and assign to variables
+  //todo: Refactor this to be more efficient
+  useEffect(() => {
+    getData(params.params.id).then((data) => setData(data));
+    setFullname(data.fullname);
+    setMessage(data.message);
+    setEmail(data.email);
+  }, []);
 
   return (
     <div className="flex justify-center pt-5">

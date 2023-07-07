@@ -30,8 +30,6 @@ export default function ContactForm(props) {
 
     // Receive a message statement and success response from our api call
     const { msg, success } = await res.json();
-    setError(msg);
-    setSuccess(success);
     getData();
   };
 
