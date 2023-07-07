@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 
 const ContactPage = (params) => {
   const router = useRouter();
+  console.log(params);
 
   // Send a delete request for the id passed into the function
   const deleteUserCard = async (id) => {
@@ -20,15 +21,45 @@ const ContactPage = (params) => {
 
   // API request for a specified contact given a provided ID
   const getData = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/contact/${id}`, {
-      cache: "no-store",
-    });
-    if (res.ok) {
-      const data = await res.json();
-      return data;
-    } else {
-      setErr(true);
+    try {
+      const res = await fetch(`http://localhost:3000/api/contact/${id}`, {
+        cache: "no-store",
+      });
+      if (!res.ok) {
+        throw new Error("Failed to retrieve data");
+      }
+
+      return res.json();
+    } catch (error) {}
+  };
+
+  //todo: Update function
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/contact/${params.params.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            newFullname: fullname,
+            newEmail: email,
+            newMessage: message,
+          }),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to update contact");
+      }
+    } catch (error) {
+      console.log(error);
     }
+    router.push("/");
   };
 
   // Form values
@@ -40,10 +71,12 @@ const ContactPage = (params) => {
   // Gather data and assign to variables
   //todo: Refactor this to be more efficient
   useEffect(() => {
-    getData(params.params.id).then((data) => setData(data));
-    setFullname(data.fullname);
-    setMessage(data.message);
-    setEmail(data.email);
+    getData(params.params.id).then((data) => {
+      setData(data);
+      setFullname(data.fullname);
+      setEmail(data.email);
+      setMessage(data.message);
+    });
   }, []);
 
   return (
@@ -53,20 +86,26 @@ const ContactPage = (params) => {
           <input
             className="placeholder:text-slate-700 rounded-sm border-none"
             placeholder={data.fullname}
+            onChange={(e) => setFullname(e.target.value)}
+            value={fullname}
           />
           <input
             className="placeholder:text-slate-700 rounded-sm border-none"
             placeholder={data.email}
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <input
             className="placeholder:text-slate-700 rounded-sm border-none"
             placeholder={data.message}
+            onChange={(e) => setFullname(e.target.value)}
+            value={message}
           />
         </div>
         <div className="flex flex-col gap-3 justify-center">
           <button
             className="text-white bg-green-700 opacity-80 rounded-md w-20 h-8 cursor-pointer"
-            type="submit"
+            onClick={handleSubmit}
           >
             Submit
           </button>

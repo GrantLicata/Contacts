@@ -31,3 +31,15 @@ export const GET = async (request, { params }) => {
     return new NextResponse("Database Error", { status: 500 });
   }
 };
+
+export async function PUT(request, { params }) {
+  const { id } = params;
+  const {
+    newFullname: fullname,
+    newEmail: email,
+    newMessage: message,
+  } = await request.json();
+  await connectDB();
+  await Contact.findByIdAndUpdate(id, { fullname, email, message });
+  return new NextResponse("Post has been updated", { status: 200 });
+}
