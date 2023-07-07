@@ -1,7 +1,7 @@
 "use client";
 
-import ContactCard from "@/components/contactCard";
-import ContactForm from "@/components/contactForm";
+import ContactCard from "@/app/components/contactCard";
+import ContactForm from "@/app/components/contactForm";
 import { useEffect, useState } from "react";
 
 export default function Home() {
