@@ -1,6 +1,6 @@
 # Contacts
 
-This contacts applicaiton was built as a testing ground for learning serverless design with MongoDB and Next.js's latest API management features. It allows any user to enter their name, email, and a message to a list. Each item in that list can then be edited or deleted. 
+The Contacts application was built to teach the basics of serverless web development with MongoDB Atlas and Next.js 13's API routing features. This app allows any user to create, read, update, and delete contact cards. Each card hold basic contact information that may be expected from this form of applicaiton
 
 ## Technologies
 Contact was built with the following technologies:
