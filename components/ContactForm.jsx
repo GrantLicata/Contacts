@@ -52,6 +52,7 @@ export default function ContactForm(props) {
           <input
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
+            className="rounded-md"
             type="text"
             id="first-name"
             alt="first name field"
@@ -63,6 +64,7 @@ export default function ContactForm(props) {
           <input
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
+            className="rounded-md"
             type="text"
             id="last-name"
             alt="last name field"
@@ -74,6 +76,7 @@ export default function ContactForm(props) {
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            className="rounded-md"
             type="text"
             id="email"
             alt="email field"
@@ -85,6 +88,7 @@ export default function ContactForm(props) {
           <input
             onChange={(e) => setPhone(e.target.value)}
             value={phone}
+            className="rounded-md"
             id="phone"
             alt="phone number field"
             placeholder="(###) ###-####"
@@ -95,6 +99,7 @@ export default function ContactForm(props) {
           <input
             onChange={(e) => setAddress(e.target.value)}
             value={address}
+            className="rounded-md"
             id="address"
             alt="address field"
             placeholder="123 Name Street, State"
