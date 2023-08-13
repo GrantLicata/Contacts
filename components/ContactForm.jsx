@@ -35,9 +35,6 @@ export default function ContactForm(props) {
       setPhone(""),
       setAddress("")
     );
-
-    // Receive a message statement and success response from our api call
-    const { msg, success } = await res.json();
     getData();
   };
 

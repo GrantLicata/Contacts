@@ -6,9 +6,8 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const [err, setErr] = useState(false);
 
-  // Function for gathering all contacts
+  // Get all contacts
   const getData = async () => {
     const res = await fetch("api/contact", {
       method: "GET",
@@ -18,12 +17,22 @@ export default function Home() {
     if (res.ok) {
       const data = await res.json();
       setData(data);
-    } else {
-      setErr(true);
     }
   };
 
-  // Gather all contacts on first mount
+  // Delete specified contact
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`/api/contact/${id}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    getData();
+  };
+
+  // Get all contacts on mount
   useEffect(() => {
     getData();
   }, []);
@@ -43,6 +52,7 @@ export default function Home() {
           address={contact.address}
           id={contact._id}
           getData={getData}
+          handleDelete={handleDelete}
         />
       ))}
     </div>
