@@ -46,7 +46,7 @@ export default function ContactForm(props) {
     <>
       <form
         onSubmit={handleSubmit}
-        className="py-4 mt-4 border-t flex flex-col gap-5"
+        className="bg-slate-200 rounded-lg p-4 mt-4 border-t flex flex-col gap-5"
       >
         <div>
           <label htmlFor="first-name">First Name</label>
@@ -103,7 +103,7 @@ export default function ContactForm(props) {
         </div>
 
         <button
-          className="bg-green-700 p-3 text-white font-bold rounded-md"
+          className="bg-green-700 p-3 text-white font-bold rounded-md active:outline active:outline-blue-500"
           type="submit"
           alt="save contact"
         >

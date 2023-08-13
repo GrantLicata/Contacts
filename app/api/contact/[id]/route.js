@@ -1,5 +1,5 @@
-import connectDB from "@/app/lib/mongodb";
-import Contact from "@/app/models/Contact";
+import connectDB from "@/lib/mongodb";
+import Contact from "@/models/Contact";
 import { NextResponse } from "next/server";
 
 export async function DELETE(request, { params }) {

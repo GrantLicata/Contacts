@@ -32,13 +32,13 @@ const ContactCard = (props) => {
       </div>
       <div className="flex flex-col gap-3 justify-center">
         <button
-          className="text-white bg-slate-700 opacity-80 rounded-md w-16 h-8 cursor-pointer"
+          className="text-white bg-slate-700 opacity-80 rounded-md w-16 h-8 cursor-pointer active:outline-blue-500"
           onClick={() => router.push(`/${id}`)}
         >
           Edit
         </button>
         <button
-          className="text-white bg-red-700 opacity-80 rounded-md w-16 h-8 cursor-pointer"
+          className="text-white bg-red-700 opacity-80 rounded-md w-16 h-8 cursor-pointer active:outline-blue-500"
           onClick={() => handleDelete(id)}
         >
           Delete

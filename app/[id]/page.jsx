@@ -67,54 +67,99 @@ const ContactPage = (params) => {
   };
 
   return (
-    <div className="flex justify-center pt-5">
-      <div className="bg-slate-200 rounded-lg py-4 px-7 mt-4 border-t flex flex-col justify-between m-2 gap-6">
-        <div className="flex flex-col gap-2">
-          <input
-            className="placeholder:text-slate-700 rounded-sm border-none"
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
-          />
-          <input
-            className="placeholder:text-slate-700 rounded-sm border-none"
-            onChange={(e) => setLastName(e.target.value)}
-            value={lastName}
-          />
-          <input
-            className="placeholder:text-slate-700 rounded-sm border-none"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-          <input
-            className="placeholder:text-slate-700 rounded-sm border-none"
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
-          />
-          <input
-            className="placeholder:text-slate-700 rounded-sm border-none"
-            onChange={(e) => setAddress(e.target.value)}
-            value={address}
-          />
-        </div>
-        <div className="flex flex-row gap-3 justify-center">
-          <button
-            className="text-white bg-green-700 opacity-80 rounded-md w-20 h-8 cursor-pointer"
-            onClick={updateContact}
-          >
-            Update
-          </button>
-          <button
-            className="text-white bg-red-700 opacity-80 rounded-md w-20 h-8 cursor-pointer"
-            onClick={() => deleteContact(params.params.id)}
-          >
-            Delete
-          </button>
-          <button
-            className="text-white bg-slate-700 opacity-80 rounded-md w-20 h-8 cursor-pointer"
-            onClick={() => router.push("/")}
-          >
-            Return
-          </button>
+    <div className="p-4 max-w-xl mx-auto">
+      <h1 className="text-3xl font-bold">Edit Contact</h1>
+      <p>Update your contact with new information</p>
+      <div className="bg-slate-200 rounded-lg p-4 mt-4">
+        <div className=" mt-4 border-t flex flex-col gap-5">
+          <div className="flex flex-col">
+            <label htmlFor="first-name" className="pb-1">
+              First Name
+            </label>
+            <input
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
+              className="rounded-md"
+              type="text"
+              id="first-name"
+              alt="first name field"
+              placeholder="John"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="last-name" className="pb-1">
+              Last Name
+            </label>
+            <input
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+              className="rounded-md"
+              type="text"
+              id="last-name"
+              alt="last name field"
+              placeholder="Doe"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="email" className="pb-1">
+              Email
+            </label>
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              className="rounded-md"
+              type="text"
+              id="email"
+              alt="email field"
+              placeholder="john@gmail.com"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="phone" className="pb-1">
+              Phone Number
+            </label>
+            <input
+              onChange={(e) => setPhone(e.target.value)}
+              value={phone}
+              className="rounded-md"
+              id="phone"
+              alt="phone number field"
+              placeholder="(###) ###-####"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="address" className="pb-1">
+              Address
+            </label>
+            <input
+              onChange={(e) => setAddress(e.target.value)}
+              value={address}
+              className="rounded-md"
+              id="address"
+              alt="address field"
+              placeholder="123 Name Street, State"
+            />
+          </div>
+          <div className="flex gap-3 justify-center">
+            <button
+              className="text-white bg-green-700 opacity-80 rounded-md w-20 h-10 cursor-pointer"
+              onClick={updateContact}
+            >
+              Update
+            </button>
+            <button
+              className="text-white bg-red-700 opacity-80 rounded-md w-20 h-10 cursor-pointer"
+              onClick={() => deleteContact(params.params.id)}
+            >
+              Delete
+            </button>
+            <button
+              className="text-white bg-slate-700 opacity-80 rounded-md w-20 h-10 cursor-pointer"
+              onClick={() => router.push("/")}
+            >
+              Return
+            </button>
+          </div>
         </div>
       </div>
     </div>
