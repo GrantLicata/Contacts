@@ -1,31 +1,32 @@
 import mongoose, { Schema } from "mongoose";
 
 // Define contact schema for database
-const contactSchema = new Schema({
-  fullname: {
-    type: String,
-    required: [true, "Name is required"],
-    trim: true,
-    minLength: [2, "Name must have more than 2 characters"],
-    maxLength: [50, "Name must have less than 50 characters"],
-  },
+const contactSchema = new Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+    },
 
-  email: {
-    type: String,
-    required: [true, "Email is required"],
-    match: [/^\S+@\S+\.\S+$/, "Invalid email address"],
-  },
+    lastName: {
+      type: String,
+      required: true,
+    },
 
-  message: {
-    type: String,
-    required: [true, "Message is required"],
-  },
+    email: {
+      type: String,
+    },
 
-  date: {
-    type: Date,
-    default: Date.now,
+    phone: {
+      type: String,
+    },
+
+    address: {
+      type: String,
+    },
   },
-});
+  { timestamps: true }
+);
 
 const Contact =
   mongoose.models.Contact || mongoose.model("Contact", contactSchema);

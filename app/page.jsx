@@ -14,6 +14,7 @@ export default function Home() {
       method: "GET",
       cache: "no-store",
     });
+    console.log("This is the data", data);
 
     if (res.ok) {
       const data = await res.json();
