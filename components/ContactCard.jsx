@@ -12,7 +12,6 @@ const ContactCard = (props) => {
     getData,
     handleDelete,
   } = props;
-  const [error, setError] = useState(false);
   const router = useRouter();
 
   return (

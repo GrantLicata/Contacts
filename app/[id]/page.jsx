@@ -12,7 +12,7 @@ const ContactPage = (params) => {
   const [address, setAddress] = useState("");
   const router = useRouter();
 
-  // Gather data and assign to variables
+  // Get all contacts on mount
   useEffect(() => {
     getContact(params.params.id);
   }, []);
@@ -28,6 +28,7 @@ const ContactPage = (params) => {
     }
   };
 
+  // Get specified contact
   const getContact = async (id) => {
     try {
       const res = await fetch(`/api/contact/${id}`, {
@@ -45,6 +46,7 @@ const ContactPage = (params) => {
     }
   };
 
+  // Update specified contact
   const updateContact = async (e) => {
     try {
       const res = await fetch(`/api/contact/${params.params.id}`, {

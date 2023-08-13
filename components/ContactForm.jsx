@@ -12,10 +12,8 @@ export default function ContactForm(props) {
 
   const { getData } = props;
 
+  // Create new contact
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Send a new contact document to our database
     const res = await fetch("api/contact", {
       method: "POST",
       headers: {
