@@ -23,16 +23,14 @@ const ContactCard = (props) => {
   return (
     <div className="bg-slate-200 rounded-lg py-4 px-3 mt-4 border-t flex justify-between">
       <div>
-        <h3 className="font-bold">{firstName}</h3>
-        <h3 className="font-bold">{lastName}</h3>
+        <h3 className="font-bold">
+          {firstName} {lastName}
+        </h3>
         <p>{email}</p>
         <p>{phone}</p>
         <p>{address}</p>
       </div>
       <div className="flex flex-col gap-3 justify-center">
-        {/* <button className="text-white bg-green-700 rounded-md w-16">
-          Edit
-        </button> */}
         <button
           className="text-white bg-slate-700 opacity-80 rounded-md w-16 h-8 cursor-pointer"
           onClick={() => router.push(`/${id}`)}

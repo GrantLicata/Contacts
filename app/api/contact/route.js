@@ -21,7 +21,7 @@ export async function POST(req) {
 export async function GET() {
   try {
     await connectDB();
-    const response = await Contact.find({}).sort({ date: -1 });
+    const response = await Contact.find({}).sort({ updatedAt: -1 });
 
     return NextResponse.json(response);
   } catch (error) {
