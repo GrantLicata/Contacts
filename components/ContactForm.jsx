@@ -28,14 +28,13 @@ export default function ContactForm(props) {
         phone,
         address,
       }),
-    });
-    // .then(
-    //   setFirstName(""),
-    //   setLastName(""),
-    //   setEmail(""),
-    //   setPhone(""),
-    //   setAddress("")
-    // );
+    }).then(
+      setFirstName(""),
+      setLastName(""),
+      setEmail(""),
+      setPhone(""),
+      setAddress("")
+    );
 
     // Receive a message statement and success response from our api call
     const { msg, success } = await res.json();
