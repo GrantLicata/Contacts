@@ -4,10 +4,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ContactForm(props) {
-  const [fullname, setFullname] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState([]);
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const [success, setSuccess] = useState(false);
 
   const { getData } = props;
@@ -22,11 +23,19 @@ export default function ContactForm(props) {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        fullname,
+        firstName,
+        lastName,
         email,
-        message,
+        phone,
+        address,
       }),
-    }).then(setFullname(""), setEmail(""), setMessage(""));
+    }).then(
+      setFirstName(""),
+      setLastName(""),
+      setEmail(""),
+      setPhone(""),
+      setAddress("")
+    );
 
     // Receive a message statement and success response from our api call
     const { msg, success } = await res.json();
@@ -40,54 +49,67 @@ export default function ContactForm(props) {
         className="py-4 mt-4 border-t flex flex-col gap-5"
       >
         <div>
-          <label htmlFor="fullname">Full name</label>
+          <label htmlFor="first-name">First Name</label>
           <input
-            onChange={(e) => setFullname(e.target.value)}
-            value={fullname}
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
             type="text"
-            id="fullname"
-            placeholder="John Doe"
+            id="first-name"
+            alt="first name field"
+            placeholder="John"
           />
         </div>
         <div>
-          <label htmlFor="fullname">Email</label>
+          <label htmlFor="last-name">Last Name</label>
+          <input
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+            type="text"
+            id="last-name"
+            alt="last name field"
+            placeholder="Doe"
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
             id="email"
+            alt="email field"
             placeholder="john@gmail.com"
           />
         </div>
         <div>
-          <label htmlFor="message">Your Message</label>
-          <textarea
-            onChange={(e) => setMessage(e.target.value)}
-            value={message}
-            className="h-32"
-            id="message"
-            placeholder="Type your message here..."
-          ></textarea>
+          <label htmlFor="phone">Phone Number</label>
+          <input
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+            id="phone"
+            alt="phone number field"
+            placeholder="(###) ###-####"
+          />
+        </div>
+        <div>
+          <label htmlFor="address">Address</label>
+          <input
+            onChange={(e) => setAddress(e.target.value)}
+            value={address}
+            id="address"
+            alt="address field"
+            placeholder="123 Name Street, State"
+          />
         </div>
 
         <button
           className="bg-green-700 p-3 text-white font-bold rounded-md"
           type="submit"
+          alt="save contact"
         >
-          Send
+          Save
         </button>
       </form>
-      <div className="bg-slate-100 flex flex-col">
-        {error &&
-          error.map((e) => (
-            <div
-              key={e._id}
-              className={`${success ? "hidden" : "text-red-600"} px-5 py-2`}
-            >
-              {e}
-            </div>
-          ))}
-      </div>
     </>
   );
 }
