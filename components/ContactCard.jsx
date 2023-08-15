@@ -1,16 +1,8 @@
 import { useRouter } from "next/navigation";
 
 export default function ContactCard(props) {
-  const {
-    firstName,
-    lastName,
-    email,
-    phone,
-    address,
-    id,
-    getData,
-    handleDelete,
-  } = props;
+  const { firstName, lastName, email, phone, address, id, handleDelete } =
+    props;
   const router = useRouter();
 
   return (
