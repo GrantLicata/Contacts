@@ -2,6 +2,7 @@ import connectDB from "@/lib/mongodb";
 import Contact from "@/models/Contact";
 import { NextResponse } from "next/server";
 
+// API call: Send new contact to the database
 export async function POST(req) {
   const { firstName, lastName, email, phone, address } = await req.json();
 
@@ -18,6 +19,7 @@ export async function POST(req) {
   }
 }
 
+// API call: Retrieve all contacts in reverse order
 export async function GET() {
   try {
     await connectDB();

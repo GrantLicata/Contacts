@@ -1,7 +1,7 @@
 "use client";
 
 import ContactCard from "@/components/ContactCard";
-import ContactForm from "@/components/ContactForm";
+import CreateForm from "@/components/CreateForm";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
     <div className="p-4 max-w-3xl mx-auto">
       <h1 className="text-3xl font-bold">Create Contact</h1>
       <p>Enter your new contact below</p>
-      <ContactForm getData={getData} />
+      <CreateForm getData={getData} />
       {data.map((contact) => (
         <ContactCard
           key={contact._id}

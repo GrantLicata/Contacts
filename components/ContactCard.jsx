@@ -1,7 +1,6 @@
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 
-const ContactCard = (props) => {
+export default function ContactCard(props) {
   const {
     firstName,
     lastName,
@@ -40,6 +39,4 @@ const ContactCard = (props) => {
       </div>
     </div>
   );
-};
-
-export default ContactCard;
+}
