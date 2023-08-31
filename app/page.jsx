@@ -43,9 +43,10 @@ export default function Home() {
       <p>Enter your new contact below</p>
       <CreateForm getData={getData} />
       <hr className="h-[2px] my-4 bg-gray-200 border-0"></hr>
-      <div className="grid grid-cols-2 gap-4 mt-4">
-        {data && data.length > 0 ? (
-          data.map((contact) => (
+
+      {data && data.length > 0 ? (
+        data.map((contact) => (
+          <div className="grid grid-cols-2 gap-4 mt-4">
             <ContactCard
               key={contact._id}
               firstName={contact.firstName}
@@ -57,13 +58,13 @@ export default function Home() {
               getData={getData}
               handleDelete={handleDelete}
             />
-          ))
-        ) : (
-          <p className="bg-slate-600 text-white rounded-md p-3 mt-4">
-            No Contacts Available
-          </p>
-        )}
-      </div>
+          </div>
+        ))
+      ) : (
+        <p className="bg-slate-600 text-white rounded-md p-3 mt-4">
+          No Contacts Available
+        </p>
+      )}
     </div>
   );
 }
