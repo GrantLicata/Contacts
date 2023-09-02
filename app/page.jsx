@@ -46,9 +46,8 @@ export default function ContactManager() {
 
       {data && data.length > 0 ? (
         data.map((contact) => (
-          <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-2 gap-4 mt-4" key={contact._id}>
             <ContactCard
-              key={contact._id}
               firstName={contact.firstName}
               lastName={contact.lastName}
               email={contact.email}
