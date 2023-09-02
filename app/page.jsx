@@ -4,7 +4,7 @@ import ContactCard from "@/components/ContactCard";
 import CreateForm from "@/components/CreateForm";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function ContactManager() {
   const [data, setData] = useState([]);
 
   // Get all contacts
