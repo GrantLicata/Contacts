@@ -2,14 +2,25 @@
 
 import { useState } from "react";
 
-export default function CreateForm(props) {
+export default function CreateForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  const { getData } = props;
+  // Get all contacts
+  const getData = async () => {
+    const res = await fetch("api/contact", {
+      method: "GET",
+      cache: "no-store",
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      setData(data);
+    }
+  };
 
   // Create new contact
   const handleSubmit = async (e) => {
@@ -39,8 +50,12 @@ export default function CreateForm(props) {
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-slate-200 rounded-lg p-4 mt-4 border-t flex flex-col gap-5"
+        className="bg-white rounded-lg p-4 mt-4 border-t flex flex-col gap-5"
       >
+        <div className="p-0 m-0 gap-0">
+          <h1 className="text-xl font-bold">Create Contact</h1>
+          <p>Enter your new contact below</p>
+        </div>
         <div>
           <label htmlFor="first-name">First Name</label>
           <input
