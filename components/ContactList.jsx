@@ -39,7 +39,7 @@ const ContactList = (props) => {
           />
         ))
       ) : (
-        <p className="bg-slate-600 text-white rounded-md p-3 mt-4">
+        <p className="col-span-2 bg-slate-600 text-white rounded-md p-3 mt-4">
           No Contacts Available
         </p>
       )}
