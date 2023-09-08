@@ -19,13 +19,8 @@ const Navbar = (params) => {
       {navMenu === false ? (
         <div className="flex gap-2">
           <Link href="/login">
-            <button className="hover:bg-slate-100 hover:shadow-sm rounded-md px-3 py-1 border border-slate-200">
-              Login
-            </button>
-          </Link>
-          <Link href="/register">
-            <button className="flex items-center gap-1 bg-slate-900 text-white hover:bg-slate-800 hover:shadow-sm rounded-md px-2 py-1">
-              <p>Sign up</p>
+            <button className="flex items-center gap-1 bg-slate-800 text-white hover:bg-slate-800 hover:shadow-sm rounded-md px-2 py-1">
+              <p>Login</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
