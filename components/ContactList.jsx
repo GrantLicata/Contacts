@@ -23,28 +23,27 @@ const ContactList = (props) => {
   };
 
   return (
-    <>
+    <div className="grid grid-cols-2 gap-4 mt-4">
       {data && data.length > 0 ? (
         data.map((contact) => (
-          <div className="grid grid-cols-2 gap-4 mt-4" key={contact._id}>
-            <ContactCard
-              firstName={contact.firstName}
-              lastName={contact.lastName}
-              email={contact.email}
-              phone={contact.phone}
-              address={contact.address}
-              id={contact._id}
-              getData={getData}
-              handleDelete={handleDelete}
-            />
-          </div>
+          <ContactCard
+            key={contact._id}
+            firstName={contact.firstName}
+            lastName={contact.lastName}
+            email={contact.email}
+            phone={contact.phone}
+            address={contact.address}
+            id={contact._id}
+            getData={getData}
+            handleDelete={handleDelete}
+          />
         ))
       ) : (
         <p className="bg-slate-600 text-white rounded-md p-3 mt-4">
           No Contacts Available
         </p>
       )}
-    </>
+    </div>
   );
 };
 

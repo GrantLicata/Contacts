@@ -1,6 +1,8 @@
 "use client";
 
+import ContactCard from "@/components/ContactCard";
 import ContactList from "@/components/ContactList";
+ContactCard;
 import CreateForm from "@/components/CreateForm";
 import Navbar from "@/components/Navbar";
 import { useSession } from "next-auth/react";
@@ -27,6 +29,18 @@ export default function ContactManager() {
     }
   };
 
+  // Delete specified contact
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`/api/contact/${id}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    getData();
+  };
+
   // Get all contacts on mount
   useEffect(() => {
     getData();
@@ -38,6 +52,27 @@ export default function ContactManager() {
       <CreateForm getData={getData} />
       <hr className="h-[2px] my-4 bg-slate-50 border-0" />
       <ContactList data={data} getData={getData} />
+      {/* <div className="grid grid-cols-2 gap-4 mt-4">
+        {data && data.length > 0 ? (
+          data.map((contact) => (
+            <ContactCard
+              key={contact._id}
+              firstName={contact.firstName}
+              lastName={contact.lastName}
+              email={contact.email}
+              phone={contact.phone}
+              address={contact.address}
+              id={contact._id}
+              getData={getData}
+              handleDelete={handleDelete}
+            />
+          ))
+        ) : (
+          <p className="bg-slate-600 text-white rounded-md p-3 mt-4">
+            No Contacts Available
+          </p>
+        )}
+      </div> */}
     </div>
   );
 }
