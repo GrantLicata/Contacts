@@ -14,7 +14,7 @@ const Navbar = (params) => {
   }, []);
 
   return (
-    <div className="flex justify-between h-14 items-center rounded-md px-2 bg-white">
+    <div className="flex justify-between h-14 items-center px-2">
       <h1 className="text-3xl font-bold">Contact Manager</h1>
       {navMenu === false ? (
         <div className="flex gap-2">

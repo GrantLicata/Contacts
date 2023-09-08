@@ -47,7 +47,7 @@ export default function ContactManager() {
   }, []);
 
   return (
-    <div className="p-4 max-w-3xl mx-auto">
+    <div className="p-2 max-w-3xl mx-auto">
       <Navbar />
       <CreateForm getData={getData} />
       <hr className="h-[2px] my-4 bg-slate-50 border-0" />
