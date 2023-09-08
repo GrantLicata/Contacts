@@ -17,13 +17,13 @@ export default function ContactCard(props) {
       </div>
       <div className="flex flex-col gap-3 justify-center">
         <button
-          className="text-white bg-slate-700 opacity-80 rounded-md w-20 h-10 cursor-pointer active:outline-blue-500"
+          className="text-white bg-slate-700 hover:bg-slate-800 opacity-80 rounded-md w-20 h-10 cursor-pointer active:outline-blue-500"
           onClick={() => router.push(`/${id}`)}
         >
           Edit
         </button>
         <button
-          className="text-white bg-red-700 opacity-80 rounded-md w-20 h-10 cursor-pointer active:outline-blue-500"
+          className="text-white bg-red-700 hover:bg-red-800 opacity-80 rounded-md w-20 h-10 cursor-pointer active:outline-blue-500"
           onClick={() => handleDelete(id)}
         >
           Delete

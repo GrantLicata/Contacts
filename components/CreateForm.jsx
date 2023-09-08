@@ -116,7 +116,7 @@ export default function CreateForm() {
         </div>
 
         <button
-          className="bg-green-700 p-3 text-white font-bold rounded-md active:outline active:outline-blue-500"
+          className="bg-green-700 hover:bg-green-800 p-3 text-white font-bold rounded-md active:outline active:outline-blue-500"
           type="submit"
           alt="save contact"
         >

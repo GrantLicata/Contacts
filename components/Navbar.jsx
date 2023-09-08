@@ -18,7 +18,7 @@ const Navbar = (params) => {
       <h1 className="text-3xl font-bold">Contact Manager</h1>
       <div className="flex gap-2">
         <Link href="/login">
-          <button className="flex items-center gap-1 bg-slate-800 text-white hover:bg-slate-800 hover:shadow-sm rounded-md px-2 py-1">
+          <button className="flex items-center gap-1 bg-slate-800 text-white hover:bg-slate-700 hover:shadow-md rounded-md px-2 py-1">
             <p>Login</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
