@@ -23,7 +23,7 @@ const ContactList = (props) => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-4 mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
       {data && data.length > 0 ? (
         data.map((contact) => (
           <ContactCard
