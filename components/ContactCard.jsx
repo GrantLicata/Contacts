@@ -6,7 +6,7 @@ export default function ContactCard(props) {
   const router = useRouter();
 
   return (
-    <div className="bg-white rounded-lg py-4 px-3 flex justify-between">
+    <div className="bg-white rounded-lg py-5 px-5 flex justify-between">
       <div>
         <h3 className="font-bold">
           {firstName} {lastName}
