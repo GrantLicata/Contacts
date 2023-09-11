@@ -20,7 +20,7 @@ const Login = () => {
         <button
           onClick={handleGoogleLogin}
           id="google-login-button"
-          className="bg-sky-50 border border-slate-200 p-[6px] px-6 mb-2 mt-6 rounded-lg flex justify-center items-center gap-2 text-md hover:ring-1 hover:border hover:bg-sky-50 hover:shadow-sm active:bg-blue-200"
+          className="bg-sky-50 border border-slate-200 p-[6px] px-6 mb-2 mt-6 rounded-lg flex justify-center items-center gap-2 text-md hover:ring-1 hover:border hover:bg-sky-100 hover:shadow-sm active:bg-blue-200"
         >
           <Image
             src={GoogleIcon}
