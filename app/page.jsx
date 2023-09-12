@@ -12,9 +12,11 @@ import { useEffect, useState } from "react";
 export default function ContactManager() {
   const [data, setData] = useState([]);
 
-  const { data: session } = useSession({
+  const { data: session, status } = useSession({
     required: true,
   });
+
+  console.log(session);
 
   // Get all contacts
   const getData = async () => {
