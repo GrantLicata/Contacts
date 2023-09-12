@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import Provider from "@/components/Provider";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +21,7 @@ export default function RootLayout({ children }) {
           {children}
           <Analytics />
         </Provider>
+        <Suspense fallback={<Loading />} />
       </body>
     </html>
   );

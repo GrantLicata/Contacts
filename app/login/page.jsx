@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const Login = () => {
   const handleGoogleLogin = () => {
     // Upon successful login the user is directed to the notebook page.
-    signIn("google", { callbackUrl: "/notebook" });
+    signIn("google", { callbackUrl: "/" });
   };
 
   return (
