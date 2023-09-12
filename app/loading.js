@@ -1,3 +1,9 @@
+import styles from "./page.module.css";
+
 export default function Loading() {
-  return <h1>Loading...</h1>;
+  return (
+    <div class={styles.center}>
+      <div class={styles.loader}></div>
+    </div>
+  );
 }
