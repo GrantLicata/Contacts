@@ -62,6 +62,13 @@ const Navbar = (params) => {
             </button>
           </Link>
         )}
+        <Image
+          className="rounded-full"
+          src={session?.user?.image}
+          width={30}
+          height={30}
+          alt="Profile picture for user"
+        />
       </div>
     </div>
   );
