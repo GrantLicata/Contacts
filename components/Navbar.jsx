@@ -20,16 +20,7 @@ const Navbar = (params) => {
   return (
     <div className="flex justify-between h-14 items-center px-2">
       <h1 className="text-3xl font-bold">Contact Manager</h1>
-      <div className="flex gap-2">
-        <DropMenu />
-        <Image
-          className="rounded-full"
-          src={session?.user?.image}
-          width={30}
-          height={30}
-          alt="Profile picture for user"
-        />
-      </div>
+      <DropMenu />
     </div>
   );
 };
