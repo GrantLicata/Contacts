@@ -15,8 +15,8 @@ export default function DropdownMenu() {
             <Image
               className="rounded-full shadow-md hover:ring-2"
               src={session?.user?.image}
-              width={35}
-              height={35}
+              width={40}
+              height={40}
               alt="Profile picture for user"
             />
             {/* <ChevronDownIcon
