@@ -50,7 +50,7 @@ export default function CreateForm() {
     <>
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-lg p-6 mt-4 border-t flex flex-col gap-5"
+        className="bg-white rounded-lg p-6 mt-4 flex flex-col gap-5"
       >
         <div className="p-0 m-0 gap-0">
           <h1 className="text-xl font-bold">Create Contact</h1>
