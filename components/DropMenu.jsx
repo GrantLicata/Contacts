@@ -3,9 +3,11 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function DropdownMenu() {
   const { data: session, status } = useSession();
+  const router = useRouter();
 
   return (
     <div className="w-56 text-right">
@@ -19,10 +21,6 @@ export default function DropdownMenu() {
               height={40}
               alt="Profile picture for user"
             />
-            {/* <ChevronDownIcon
-              className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
-              aria-hidden="true"
-            /> */}
           </Menu.Button>
         </div>
         <Transition
@@ -42,6 +40,7 @@ export default function DropdownMenu() {
                     className={`${
                       active ? "bg-sky-600 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={() => router.push("/profile")}
                   >
                     Profile
                   </button>
