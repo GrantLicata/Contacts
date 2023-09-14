@@ -6,18 +6,20 @@ export default function ContactCard(props) {
   const router = useRouter();
 
   return (
-    <div className="bg-white rounded-lg py-5 px-5 flex justify-between">
-      <div>
-        <h3 className="font-bold">
-          {firstName} {lastName}
-        </h3>
-        <p>{email}</p>
-        <p>{phone}</p>
-        <p>{address}</p>
+    <div className="bg-white rounded-lg py-5 px-5 flex flex-col justify-between">
+      <div className="flex justify-around">
+        <div>
+          <h3 className="font-bold">
+            {firstName} {lastName}
+          </h3>
+          <p>{email}</p>
+          <p>{phone}</p>
+          <p>{address}</p>
+        </div>
       </div>
-      <div className="flex flex-col gap-5 justify-center">
+      <div className="flex flex-row mt-5 gap-20 md:gap-14 justify-center">
         <button
-          className="rounded-md flex justify-center items-center w-6 h-auto cursor-pointer active:outline-blue-500"
+          className="rounded-md flex justify-center items-center w-6 h-auto cursor-pointer hover:drop-shadow-lg"
           onClick={() => router.push(`/${id}`)}
         >
           <svg
@@ -35,7 +37,7 @@ export default function ContactCard(props) {
           </svg>
         </button>
         <button
-          className="rounded-md flex justify-center items-center w-6 h-auto cursor-pointer active:outline-blue-500"
+          className="rounded-md flex justify-center items-center w-6 h-auto cursor-pointer hover:drop-shadow-lg"
           onClick={() => handleDelete(id)}
         >
           <svg
