@@ -16,8 +16,6 @@ export default function ContactManager() {
     required: true,
   });
 
-  console.log(session);
-
   // Get all contacts
   const getData = async () => {
     const res = await fetch("api/contact", {
