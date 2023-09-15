@@ -20,7 +20,7 @@ export default function ContactCard(props) {
       <div className="flex flex-row mt-5 gap-20 md:gap-14 justify-center">
         <button
           className="rounded-md flex justify-center items-center w-6 h-auto cursor-pointer hover:drop-shadow-lg"
-          onClick={() => router.push(`/${id}`)}
+          onClick={() => router.push(`/contact/${id}`)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
