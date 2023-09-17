@@ -5,16 +5,21 @@ import ContactList from "@/components/ContactList";
 ContactCard;
 import CreateForm from "@/components/CreateForm";
 import Navbar from "@/components/Navbar";
+import { AuthContext } from "@/context/AuthContext";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function ContactManager() {
   const [data, setData] = useState([]);
 
+  const { currentUser } = useContext(AuthContext);
+
   const { data: session, status } = useSession({
     required: true,
   });
+
+  console.log(currentUser);
 
   // Get all contacts
   const getData = async () => {

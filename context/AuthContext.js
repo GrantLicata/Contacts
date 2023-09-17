@@ -6,11 +6,10 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   useEffect(() => {
     const user = () => {
-      setCurrentUser(session.user.email);
-      console.log("Current user", currentUser);
+      setCurrentUser(session?.user?.email);
     };
 
     return () => {
