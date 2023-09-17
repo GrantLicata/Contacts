@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import Provider from "@/components/Provider";
+import Provider from "@/providers/SessionProvider";
 import { Suspense } from "react";
 import Loading from "./loading";
 

@@ -1,6 +1,4 @@
-import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import { auth } from "../firebase";
 import { useSession } from "next-auth/react";
 
 export const AuthContext = createContext();
