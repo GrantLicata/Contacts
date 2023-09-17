@@ -1,5 +1,6 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 export default function CreateForm() {
@@ -8,6 +9,8 @@ export default function CreateForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+
+  const { data: session } = useSession();
 
   // Get all contacts
   const getData = async () => {
@@ -35,6 +38,7 @@ export default function CreateForm() {
         email,
         phone,
         address,
+        author: session.user.email,
       }),
     }).then(
       setFirstName(""),

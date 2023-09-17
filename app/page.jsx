@@ -44,6 +44,7 @@ export default function ContactManager() {
   // Get all contacts on mount
   useEffect(() => {
     getData();
+    console.log(session);
   }, []);
 
   return (

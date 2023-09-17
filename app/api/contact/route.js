@@ -4,11 +4,19 @@ import { NextResponse } from "next/server";
 
 // API call: Send new contact to the database
 export async function POST(req) {
-  const { firstName, lastName, email, phone, address } = await req.json();
+  const { firstName, lastName, email, phone, address, author } =
+    await req.json();
 
   try {
     await connectDB();
-    await Contact.create({ firstName, lastName, email, phone, address });
+    await Contact.create({
+      firstName,
+      lastName,
+      email,
+      phone,
+      address,
+      author,
+    });
 
     return NextResponse.json({
       msg: ["Message sent successfully"],
@@ -24,7 +32,6 @@ export async function GET() {
   try {
     await connectDB();
     const response = await Contact.find({}).sort({ updatedAt: -1 });
-
     return NextResponse.json(response);
   } catch (error) {
     return NextResponse.json(error);

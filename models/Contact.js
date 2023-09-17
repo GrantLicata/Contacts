@@ -24,6 +24,11 @@ const contactSchema = new Schema(
     address: {
       type: String,
     },
+
+    author: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
