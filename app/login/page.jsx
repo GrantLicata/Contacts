@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import GoogleIcon from "public/google-logo-240.png";
 import { signIn, useSession } from "next-auth/react";

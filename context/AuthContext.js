@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 
@@ -9,6 +10,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const user = () => {
       setCurrentUser(session.user.email);
+      console.log("Current user", currentUser);
     };
 
     return () => {

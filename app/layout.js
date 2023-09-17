@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Provider from "@/providers/SessionProvider";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { AuthContextProvider } from "@/context/AuthContext";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +19,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-slate-200">
         <Provider>
-          {children}
-          <Analytics />
+          <AuthContextProvider>
+            {children}
+            <Analytics />
+            <Suspense fallback={<Loading />} />
+          </AuthContextProvider>
         </Provider>
-        <Suspense fallback={<Loading />} />
       </body>
     </html>
   );
