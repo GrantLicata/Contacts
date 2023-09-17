@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function DropdownMenu() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
 
   return (
