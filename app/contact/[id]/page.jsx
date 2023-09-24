@@ -72,7 +72,7 @@ const ContactPage = (params) => {
   return (
     <div className="p-2 max-w-3xl mx-auto">
       <Navbar />
-      <div className="bg-white rounded-lg p-4 mt-4 flex flex-col gap-5">
+      <div className="bg-white rounded-lg p-6 mt-4 flex flex-col gap-5">
         <h2 className="text-xl font-bold">Edit Contact</h2>
         <div className="flex flex-col">
           <label htmlFor="first-name" className="pb-1">
